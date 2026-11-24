@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>DesktopShredder</AssemblyName>
+    <RootNamespace>DesktopShredder</RootNamespace>
+    <ApplicationIcon>Assets\shredder.ico</ApplicationIcon>
+    <Version>1.0.0</Version>
+    <Description>Offline Native Desktop File Shredder (Zero Network, Unrecoverable Multi-Pass Wipe)</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\shredder.ico" />
+    <Resource Include="Assets\shredder_256.png" />
+  </ItemGroup>
+
+</Project>

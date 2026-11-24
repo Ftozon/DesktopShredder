@@ -1,0 +1,66 @@
+<Window x:Class="DesktopShredder.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="桌面碎纸机 - 设置"
+        Width="420"
+        Height="350"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#0F172A"
+        Foreground="#F8FAFC"
+        Icon="pack://application:,,,/Assets/shredder.ico">
+
+    <Grid Margin="22">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,16">
+            <TextBlock Text="桌面碎纸机设置" FontSize="17" FontWeight="SemiBold" Foreground="#F8FAFC" />
+            <TextBlock Text="纯本地离线运行 · 免登录 · 零日志静默销毁" FontSize="12" Foreground="#94A3B8" Margin="0,4,0,0" />
+        </StackPanel>
+
+        <!-- Controls -->
+        <StackPanel Grid.Row="1">
+            <CheckBox x:Name="AutoStartCheckBox"
+                      Content="开机自动启动（当前用户登录时自动悬浮于桌面）"
+                      Foreground="#E2E8F0"
+                      FontSize="13"
+                      Margin="0,0,0,14" />
+
+            <CheckBox x:Name="LockPositionCheckBox"
+                      Content="锁定桌面悬浮窗位置（防止鼠标误拖动）"
+                      Foreground="#E2E8F0"
+                      FontSize="13"
+                      Margin="0,0,0,16" />
+
+            <TextBlock Text="安全粉碎覆写标准（拖入即静默执行，不可恢复）："
+                       FontSize="12.5" Foreground="#CBD5E1" Margin="0,0,0,6" />
+            <ComboBox x:Name="PassCountComboBox" Height="30" FontSize="12.5" Margin="0,0,0,16">
+                <ComboBoxItem Tag="7" Content="7 次覆写 — DoD 5220.22-M ECE + CSPRNG（默认推荐）" />
+                <ComboBoxItem Tag="3" Content="3 次覆写 — DoD 5220.22-M 标准（兼顾大文件速度）" />
+                <ComboBoxItem Tag="35" Content="35 次覆写 — Gutmann 极限覆写标准（适合高敏小文件）" />
+            </ComboBox>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                <TextBlock Text="悬浮窗不透明度：" FontSize="12.5" Foreground="#CBD5E1" />
+                <TextBlock x:Name="OpacityValueText" Text="95%" FontSize="12.5" Foreground="#F8FAFC" FontWeight="SemiBold" />
+            </StackPanel>
+            <Slider x:Name="OpacitySlider" Minimum="0.40" Maximum="1.00" TickFrequency="0.05"
+                    ValueChanged="OpacitySlider_ValueChanged" />
+        </StackPanel>
+
+        <!-- Footer Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+            <Button Content="取消" Width="82" Height="30" Margin="0,0,10,0"
+                    Background="#334155" Foreground="#F8FAFC" BorderThickness="0"
+                    Click="Cancel_Click" />
+            <Button Content="保存设置" Width="92" Height="30"
+                    Background="#EF4444" Foreground="#FFFFFF" FontWeight="SemiBold" BorderThickness="0"
+                    Click="Save_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

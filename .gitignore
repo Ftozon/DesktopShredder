@@ -1,0 +1,10 @@
+# Build outputs
+windows-wpf/bin/
+windows-wpf/obj/
+windows-wpf/dist/
+macos/.build/
+macos/dist/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
